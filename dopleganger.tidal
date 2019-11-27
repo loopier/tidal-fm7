@@ -111,7 +111,7 @@ detune6 = pF "detune6"
 d1 
 -- $ slow 8
 $ slow 16
-$ n (scale "harmonicMinor" "[0,<2 4>] [-1,<4 1 7>] [2,<4 4 6 4>] [1,<4 4 4 1 4>]")
+$ n (scale "harmonicMinor" "[0,<2 4>] [-1,<4 1 4>] [2,<4 4 6 4>] [1,<4 4 4 1 7>]")
 # s "dxt"
 # amp1 1
 # amp2 0
@@ -135,10 +135,10 @@ $ n (scale "harmonicMinor" "[0,<2 4>] [-1,<4 1 7>] [2,<4 4 6 4>] [1,<4 4 4 1 4>]
 # mod53 (slow 1.4 sine)
 # mod54 (slow 1.3 sine)
 # eglevel12 0.2
-# egrate12 0.1 
+# egrate12 (slow 5 (sine + 0.1))
 # eglevel62 0.1
 # eglevel63 8
-# egrate63 0.5 
+# egrate63 (slow 4 (sine + 0.5))
 # room 1
 
 hush
