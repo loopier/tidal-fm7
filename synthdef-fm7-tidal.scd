@@ -2,8 +2,9 @@
 // 6-op FM synth for TidalCycles (DX7-like)
 SynthDef(\dxt, {
 	var sustain = \sustain.kr(1);
-	var freq = \freq.kr(440);
-	// var amp = \amp.kr(1);
+	var lfofreq = \lfofreq.kr(1);
+	var lfodepth = \lfodepth.kr(0);
+	var freq = \freq.kr(440) * (1 + (LFTri.kr(lfofreq) * lfodepth));
 	var out = \out.kr(0);
 	var pan = \pan.kr(0);
 	// overall envelope
@@ -42,7 +43,8 @@ SynthDef(\dxt, {
 
 	var sound = FM7.ar(ctls, mods) * amps;
 	// FM7 outputs 6 channels.  Splay.ar() maps them to stereo.
-	sound = Splay.ar(sound);
+	// sound = Splay.ar(sound);
+	sound = Mix.ar(sound);
 	OffsetOut.ar(out, DirtPan.ar(sound, ~dirt.numChannels, pan, env));
 }).store;
 )
