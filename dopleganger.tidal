@@ -106,6 +106,10 @@ detune3 = pF "detune3"
 detune4 = pF "detune4"
 detune5 = pF "detune5"
 detune6 = pF "detune6"
+-- lfo
+lfofreq = pF "lfofreq"
+lfodepth = pF "lfodepth"
+
 
 
 d1 
